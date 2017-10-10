@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Congrats</title>
+</head>
+<body>
+  <h1>Great success!</h1>
+  <p>Your input was: <span id="userinput"></span></p>
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    document.querySelector('#userinput').innerHTML = getParameterByName('coolie', window.location.href)
+  </script>
+</body>
+</html>
