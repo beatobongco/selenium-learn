@@ -1,11 +1,16 @@
 import time
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 
 MAIN_URL = 'localhost:8080'
+DOWAIT = True
+
 
 # Utility functions
 def wait():
-  time.sleep(2)
+  if DOWAIT:
+    time.sleep(2)
+
 
 def test_homepage(selenium):
 
@@ -69,3 +74,34 @@ def test_form(selenium):
   assert userinput.text == 'COOLIE'
 
   wait()
+
+
+def test_checkboxes(selenium):
+  selenium.get(MAIN_URL)
+
+  wait()
+
+  cb1 = selenium.find_element_by_id('cb1')
+  cb2 = selenium.find_element_by_id('cb2')
+
+  cb1.click()
+  cb2.click()
+
+  wait()
+
+  assert cb1.get_attribute('selected') == 'true'
+  assert cb2.get_attribute('selected') == 'true'
+
+
+def test_select(selenium):
+  selenium.get(MAIN_URL)
+
+  wait()
+
+  myselect = selenium.find_element_by_id('myselect')
+  # can be by index, visible_text, valye
+  Select(myselect).select_by_visible_text('Butiki')
+
+  wait()
+
+  assert myselect.get_attribute('value') == 'Butiki'

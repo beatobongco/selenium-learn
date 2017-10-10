@@ -5,13 +5,26 @@
 </head>
 <body>
   <h1>Learn pytest-selenium</h1>
-  <a id="linkid" href="1.html">Link with ID</a>
-  <br>
-  <a class="linkclass" href="1.html">Link with class</a>
-  <br>
+  <h3>Test links</h3>
+  <ul>
+    <li><a id="linkid" href="1.html">Link with ID</a></li>
+    <li><a class="linkclass" href="1.html">Link with class</a></li>
+  </ul>
+  <h3>Test form</h3>
   <form action="/2.html" method="get">
     <input type="text" name="coolie">
     <button type="submit">Submit</button>
   </form>
+  <h3>Test checkboxes</h3>
+  <input type="checkbox" id="cb1" name="cb1"><label for="cb1">Checkbox 1</label>
+  <br>
+  <input type="checkbox" id="cb2" name="cb2"><label for="cb2">Checkbox 2</label>
+  <h3>Test dropdown</h3>
+  <select id="myselect">
+    <option>Girl</option>
+    <option>Boy</option>
+    <option>Butiki</option>
+    <option>Baboy</option>
+  </select>
 </body>
 </html>
